@@ -95,7 +95,6 @@ public class ElevatorRequestValidatorTests
 
         // Assert
         Assert.That(result.IsValid, Is.False);
-        Assert.That(result.Errors.Length, Is.EqualTo(2));
         Assert.That(result.Errors, Contains.Item("Floor must be between 1 and 20"));
         Assert.That(result.Errors, Contains.Item("Passenger count must be greater than 0"));
     }

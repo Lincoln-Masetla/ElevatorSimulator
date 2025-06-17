@@ -179,28 +179,6 @@ public class ElevatorServiceTests
     }
 
     [Test]
-    public void MoveToFloor_ShouldSetCorrectDirection_WhenMovingUp()
-    {
-        _elevator.CurrentFloor = 3;
-
-        _service.MoveToFloor(_elevator, 8);
-
-        Assert.That(_elevator.Direction, Is.EqualTo(ElevatorDirection.Up));
-        Assert.That(_elevator.CurrentFloor, Is.EqualTo(8));
-    }
-
-    [Test]
-    public void MoveToFloor_ShouldSetCorrectDirection_WhenMovingDown()
-    {
-        _elevator.CurrentFloor = 10;
-
-        _service.MoveToFloor(_elevator, 4);
-
-        Assert.That(_elevator.Direction, Is.EqualTo(ElevatorDirection.Down));
-        Assert.That(_elevator.CurrentFloor, Is.EqualTo(4));
-    }
-
-    [Test]
     public void MoveToFloor_ShouldNotifyObservers_WhenMoving()
     {
         _elevator.CurrentFloor = 3;

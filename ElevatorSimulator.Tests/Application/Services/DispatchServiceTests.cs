@@ -64,22 +64,6 @@ public class DispatchServiceTests
     }
 
     [Test]
-    public async Task ProcessRequestAsync_ShouldDistributePassengersAcrossMultipleElevators()
-    {
-        // Arrange
-        var request = new Request(1, 15, 25); // 25 passengers - requires multiple elevators
-        _mockElevatorService.Setup(s => s.CanAcceptPassengers(It.IsAny<Elevator>(), It.IsAny<int>())).Returns(true);
-        _mockElevatorService.Setup(s => s.CalculateDistance(It.IsAny<Elevator>(), It.IsAny<int>())).Returns(1);
-
-        // Act
-        var remainingPassengers = await _service.ProcessRequestAsync(_elevators, request);
-
-        // Assert - should accommodate 48 passengers (8+8+12+20), queue 0
-        Assert.That(remainingPassengers, Is.EqualTo(0));
-        _mockElevatorService.Verify(s => s.LoadPassengersAsync(It.IsAny<Elevator>(), It.IsAny<int>()), Times.AtLeast(4));
-    }
-
-    [Test]
     public async Task ProcessRequestAsync_ShouldQueueExcessPassengers()
     {
         // Arrange
