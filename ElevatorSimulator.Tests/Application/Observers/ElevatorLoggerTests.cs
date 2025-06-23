@@ -120,7 +120,7 @@ public class ElevatorLoggerTests
         Assert.That(logs.Count, Is.EqualTo(1));
         Assert.That(logs[0], Contains.Substring("Queue ADDED"));
         Assert.That(logs[0], Contains.Substring("1 request(s)"));
-        Assert.That(logs[0], Contains.Substring("8p 5→12"));
+        Assert.That(logs[0], Contains.Substring("8p 5 to 12"));
     }
 
     [Test]

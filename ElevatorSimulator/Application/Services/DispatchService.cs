@@ -46,7 +46,7 @@ public class DispatchService : IDispatchService
         
         if (!subRequests.Any())
         {
-            Console.WriteLine("❌ No elevators available to handle this request");
+            Console.WriteLine("No elevators available to handle this request");
             return request.PassengerCount; // All passengers need to be queued
         }
         
@@ -54,11 +54,11 @@ public class DispatchService : IDispatchService
         var accommodatedPassengers = subRequests.Sum(sr => sr.Item2);
         var remainingPassengers = request.PassengerCount - accommodatedPassengers;
         
-        Console.WriteLine($"\n🎬 Starting multi-elevator operation:");
-        Console.WriteLine($"   ✅ Accommodating: {accommodatedPassengers} passengers across {subRequests.Count} elevator(s)");
+        Console.WriteLine($"\nStarting multi-elevator operation:");
+        Console.WriteLine($"   Accommodating: {accommodatedPassengers} passengers across {subRequests.Count} elevator(s)");
         if (remainingPassengers > 0)
         {
-            Console.WriteLine($"   ⏳ Queueing: {remainingPassengers} passengers for next available elevator");
+            Console.WriteLine($"   Queueing: {remainingPassengers} passengers for next available elevator");
         }
         Console.WriteLine();
         
@@ -140,7 +140,7 @@ public class DispatchService : IDispatchService
         // Handle remaining passengers by creating queued requests
         if (remainingPassengers > 0)
         {
-            Console.WriteLine($"\n🔄 {remainingPassengers} passengers will be queued for next available elevator");
+            Console.WriteLine($"\n{remainingPassengers} passengers will be queued for next available elevator");
             return remainingPassengers; // Return for queue handling
         }
         
@@ -207,7 +207,7 @@ public class DispatchService : IDispatchService
         
         if (!availableElevators.Any())
         {
-            Console.WriteLine("⚠️  No elevators available - all are busy or at full capacity");
+            Console.WriteLine("No elevators available - all are busy or at full capacity");
             return new List<Elevator>();
         }
         
@@ -219,13 +219,13 @@ public class DispatchService : IDispatchService
             .ThenBy(e => e.Id) // 4. Tie-breaker
             .ToList();
         
-        Console.WriteLine($"🎯 Available elevators (by preference):");
+        Console.WriteLine($"Available elevators (by preference):");
         foreach (var elevator in elevatorsByPreference.Take(3)) // Show top 3
         {
             var distance = _elevatorService.CalculateDistance(elevator, request.FromFloor);
             var capacity = elevator.MaxCapacity - elevator.PassengerCount;
             var type = GetElevatorTypeDescription(elevator);
-            Console.WriteLine($"   🚀 Elevator {elevator.Id} ({type}): {distance} floors away, {capacity} capacity, Floor {elevator.CurrentFloor}");
+            Console.WriteLine($"   Elevator {elevator.Id} ({type}): {distance} floors away, {capacity} capacity, Floor {elevator.CurrentFloor}");
         }
         
         return elevatorsByPreference;

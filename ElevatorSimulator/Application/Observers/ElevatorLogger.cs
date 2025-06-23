@@ -49,7 +49,7 @@ public class ElevatorLogger : IElevatorObserver
         _requestCounter++;
         var direction = request.Direction == ElevatorDirection.Up ? "UP" : "DOWN";
         LogEvent(LogLevel.System, LogCategory.Request, 
-            $"REQUEST #{_requestCounter} [{mode}]: {request.PassengerCount} passengers from floor {request.FromFloor} → {request.ToFloor} ({direction})");
+            $"REQUEST #{_requestCounter} [{mode}]: {request.PassengerCount} passengers from floor {request.FromFloor} to {request.ToFloor} ({direction})");
     }
 
     public void LogTripStart(int elevatorId, string elevatorType, Request request)
@@ -67,7 +67,7 @@ public class ElevatorLogger : IElevatorObserver
 
     public void LogQueueOperation(string operation, int queueSize, Request? request = null)
     {
-        var details = request != null ? $" | Request: {request.PassengerCount}p {request.FromFloor}→{request.ToFloor}" : "";
+        var details = request != null ? $" | Request: {request.PassengerCount}p {request.FromFloor} to {request.ToFloor}" : "";
         LogEvent(LogLevel.Warning, LogCategory.Queue, 
             $"Queue {operation}: {queueSize} request(s) in queue{details}");
     }

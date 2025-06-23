@@ -216,7 +216,7 @@ Use shorthand syntax for rapid commands:
 
 #### Multi-Destination Mode
 Process multiple trips simultaneously:
-- `3 8 12, 7 2 5` - Two trips: 12 passengers (3→8), 5 passengers (7→2)
+- `3 8 12, 7 2 5` - Two trips: 12 passengers (3 to 8), 5 passengers (7 to 2)
 - `1 15 8, 2 10 12, 5 18 6` - Three coordinated trips
 
 #### Batch Mode

@@ -112,7 +112,7 @@ public class SimulationService : ISimulationService
     
     public async Task ProcessQueuedRequestsAsync()
     {
-        Console.WriteLine("\n🔄 PROCESSING QUEUED REQUESTS");
+        Console.WriteLine("\nPROCESSING QUEUED REQUESTS");
         Console.WriteLine("═══════════════════════════════");
         
         int processedCount = 0;
@@ -122,8 +122,8 @@ public class SimulationService : ISimulationService
             if (nextRequest != null)
             {
                 processedCount++;
-                Console.WriteLine($"\n🎯 Processing queued request #{processedCount}:");
-                Console.WriteLine($"   📍 {nextRequest.PassengerCount} passengers from floor {nextRequest.FromFloor} to floor {nextRequest.ToFloor}");
+                Console.WriteLine($"\nProcessing queued request #{processedCount}:");
+                Console.WriteLine($"   {nextRequest.PassengerCount} passengers from floor {nextRequest.FromFloor} to floor {nextRequest.ToFloor}");
                 
                 var remainingPassengers = await _dispatchService.ProcessRequestAsync(_elevators, nextRequest);
                 
@@ -132,11 +132,11 @@ public class SimulationService : ISimulationService
                 {
                     var requeuedRequest = new Request(nextRequest.FromFloor, nextRequest.ToFloor, remainingPassengers);
                     _requestQueue.Enqueue(requeuedRequest);
-                    Console.WriteLine($"   ⏳ {remainingPassengers} passengers re-queued due to capacity limits");
+                    Console.WriteLine($"   {remainingPassengers} passengers re-queued due to capacity limits");
                     break; // Stop processing to avoid infinite loop
                 }
                 
-                Console.WriteLine($"   ✅ Queued request #{processedCount} completed successfully");
+                Console.WriteLine($"   Queued request #{processedCount} completed successfully");
                 
                 // Small delay for realism
                 await Task.Delay(500);
@@ -145,16 +145,16 @@ public class SimulationService : ISimulationService
         
         if (processedCount > 0)
         {
-            Console.WriteLine($"\n✅ Processed {processedCount} queued request(s)");
+            Console.WriteLine($"\nProcessed {processedCount} queued request(s)");
         }
         
         if (_requestQueue.HasPendingRequests)
         {
-            Console.WriteLine($"⏳ {_requestQueue.PendingCount} request(s) still in queue (waiting for elevator availability)");
+            Console.WriteLine($"{_requestQueue.PendingCount} request(s) still in queue (waiting for elevator availability)");
         }
         else if (processedCount > 0)
         {
-            Console.WriteLine("🎉 All queued requests have been processed!");
+            Console.WriteLine("All queued requests have been processed!");
         }
     }
 }
