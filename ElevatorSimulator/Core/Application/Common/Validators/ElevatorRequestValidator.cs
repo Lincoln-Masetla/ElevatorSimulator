@@ -1,5 +1,6 @@
 using ElevatorSimulator.Core.Application.Common.Interfaces;
 using ElevatorSimulator.Core.Domain.Entities;
+using ElevatorSimulator.Core.Application.Common.Models;
 
 namespace ElevatorSimulator.Core.Application.Common.Validators;
 
@@ -117,4 +118,3 @@ public class ElevatorRequestValidator : IValidator<ElevatorRequest>
     }
 }
 
-public record ElevatorRequest(int Floor, int PassengerCount);

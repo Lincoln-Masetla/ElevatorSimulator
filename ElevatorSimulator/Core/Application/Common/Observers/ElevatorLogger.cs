@@ -1,6 +1,8 @@
 using ElevatorSimulator.Core.Domain.Entities;
 using ElevatorSimulator.Core.Application.Common.Interfaces;
 using ElevatorSimulator.Core.Domain.Enums;
+using ElevatorSimulator.Core.Application.Common.Models;
+using ElevatorSimulator.Core.Application.Common.Enums;
 
 namespace ElevatorSimulator.Core.Application.Common.Observers;
 
@@ -153,47 +155,3 @@ public class ElevatorLogger : IElevatorObserver
     }
 }
 
-public class LogEntry
-{
-    public DateTime Timestamp { get; set; }
-    public LogLevel Level { get; set; }
-    public LogCategory Category { get; set; }
-    public string Message { get; set; } = "";
-    public string FormattedMessage { get; set; } = "";
-}
-
-public class LogSummary
-{
-    public int TotalEntries { get; set; }
-    public int TotalRequests { get; set; }
-    public int TotalTrips { get; set; }
-    public int ErrorCount { get; set; }
-    public int WarningCount { get; set; }
-    public DateTime StartTime { get; set; }
-    public DateTime LastActivity { get; set; }
-}
-
-public enum LogLevel
-{
-    Debug,
-    Info,
-    Warning,
-    Error,
-    Success,
-    System
-}
-
-public enum LogCategory
-{
-    ElevatorState,
-    Movement,
-    Passengers,
-    Dispatch,
-    Completion,
-    Request,
-    Trip,
-    Queue,
-    Capacity,
-    Batch,
-    Statistics
-}

@@ -1,5 +1,6 @@
 using ElevatorSimulator.Core.Domain.Entities;
 using ElevatorSimulator.Core.Application.Common.Validators;
+using ElevatorSimulator.Core.Application.Common.Models;
 
 namespace ElevatorSimulator.Core.Application.Features.RequestProcessing.Services;
 
