@@ -1,6 +1,9 @@
-using ElevatorSimulator.Application.Services;
+using ElevatorSimulator.Core.Application.Features.SimulationControl.Services;
+using ElevatorSimulator.Core.Application.Features.ElevatorManagement.Services;
+using ElevatorSimulator.Core.Application.Features.ElevatorManagement.Repositories;
+using ElevatorSimulator.Core.Application.Features.RequestProcessing.Services;
 using ElevatorSimulator.Presentation.Console;
-using ElevatorSimulator.Domain.Interfaces;
+using ElevatorSimulator.Core.Application.Common.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -35,7 +38,11 @@ class Program
     /// </summary>
     private static void ConfigureServices(IServiceCollection services)
     {
-        // Register services with interfaces (DIP compliance)
+        // Register domain services
+        services.AddSingleton<IElevatorRepository, ElevatorRepository>();
+        services.AddSingleton<IQueueService, QueueService>();
+        
+        // Register application services with interfaces (DIP compliance)
         services.AddSingleton<IElevatorObserverService, ElevatorObserverService>();
         services.AddSingleton<IElevatorService, ElevatorService>();
         services.AddSingleton<IDispatchService, DispatchService>();
