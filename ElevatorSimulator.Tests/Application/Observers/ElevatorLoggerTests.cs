@@ -1,6 +1,8 @@
-using ElevatorSimulator.Application.Observers;
-using ElevatorSimulator.Domain.Entities;
-using ElevatorSimulator.Domain.Enums;
+using ElevatorSimulator.Core.Application.Common.Observers;
+using ElevatorSimulator.Core.Domain.Entities;
+using ElevatorSimulator.Core.Domain.Enums;
+using ElevatorSimulator.Core.Application.Common.Enums;
+using ElevatorSimulator.Core.Application.Common.Models;
 using NUnit.Framework;
 
 namespace ElevatorSimulator.Tests.Application.Observers;

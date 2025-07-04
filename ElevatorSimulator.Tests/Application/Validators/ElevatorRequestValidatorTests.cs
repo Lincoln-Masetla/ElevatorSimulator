@@ -1,4 +1,5 @@
-using ElevatorSimulator.Application.Validators;
+using ElevatorSimulator.Core.Application.Common.Validators;
+using ElevatorSimulator.Core.Application.Common.Models;
 using NUnit.Framework;
 
 namespace ElevatorSimulator.Tests.Application.Validators;

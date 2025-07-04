@@ -1,7 +1,7 @@
-using ElevatorSimulator.Application.Services;
-using ElevatorSimulator.Domain.Entities;
-using ElevatorSimulator.Domain.Enums;
-using ElevatorSimulator.Domain.Interfaces;
+using ElevatorSimulator.Core.Application.Features.ElevatorManagement.Services;
+using ElevatorSimulator.Core.Domain.Entities;
+using ElevatorSimulator.Core.Domain.Enums;
+using ElevatorSimulator.Core.Application.Common.Interfaces;
 using Moq;
 using NUnit.Framework;
 

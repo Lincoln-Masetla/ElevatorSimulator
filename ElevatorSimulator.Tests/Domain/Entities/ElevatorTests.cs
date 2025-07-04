@@ -1,5 +1,5 @@
-using ElevatorSimulator.Domain.Entities;
-using ElevatorSimulator.Domain.Enums;
+using ElevatorSimulator.Core.Domain.Entities;
+using ElevatorSimulator.Core.Domain.Enums;
 using NUnit.Framework;
 
 namespace ElevatorSimulator.Tests.Domain.Entities;
